@@ -127,6 +127,9 @@ void insert(HashTable hashTable, ElemType elem)
 			strcpy(pNewCell->elem, elem);
 			pNewCell->next = l->next;
 			l->next = pNewCell;
+			//即便有hash冲突,也不走到最后的位置,直接在当前hash table的位置后面
+			//将新元素添加进来。冲突的元素,排在新进来的元素后面
+			//这样保证了insert的时间复杂度是o(1)
 			DEBUG_MSG(("%d-----%s\n",hash(elem, hashTable->tableSize),pNewCell->elem));
 		}
 	}
