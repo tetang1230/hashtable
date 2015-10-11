@@ -116,7 +116,6 @@ void insert(HashTable hashTable, ElemType elem)
 
 	p = find(hashTable, elem);
 	//感觉这步,查找是多余的,真正的插入已经在下面else语句完成了
-	//这不查找反而让时间复杂度变成了o(n)...
 	if(p == NULL)
 	{
 		pNewCell = (List)malloc(sizeof(ListNode));
